@@ -134,7 +134,7 @@
   <script>
     // Tomar el parámetro idrr de la URL
     const params = new URLSearchParams(window.location.search);
-    const idrr = params.get('idrr');
+    const idrr = Number(params.get('idrr'));
 
     if (!idrr) {
       document.body.innerHTML = "<h3 style='color:white; text-align:center; margin-top: 20px;'>No se especificó ID de RaceResult</h3>";

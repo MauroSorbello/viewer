@@ -3,141 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <title>RaceResult Viewer</title>
-  <style>
-    ::-webkit-scrollbar { display: none; }
-    body {
-      font-family: Helvetica, Arial, sans-serif;
-      font-weight: 500;
-      font-style: normal;
-      background-color: #000;
-      color: #fff;
-    }
+<style>
+::-webkit-scrollbar { display: none; }
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color: #000;
+  color: #fff;
+}
 
-    /* Tabla general */
-    .RRPublish {
-      vertical-align: top;
-      font-size: 16px;
-      background-color: #000;
-      border-radius: 5px;
-      border-spacing: 0;
-      border: 2px solid #fff;
-      font-family: Helvetica, Arial, sans-serif;
-    }
+/* Tabla general */
+.RRPublish {
+  vertical-align: top;
+  font-size: 16px;
+  background-color: #000;
+  border-radius: 5px;
+  border-spacing: 0;
+  border: 2px solid #fff;
+  font-family: Helvetica, Arial, sans-serif;
+}
 
-    .RRPublish div.ListControl {
-      padding: 2px 1% 1px 1%;
-      background-color: black !important;
-      position: relative;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      border-bottom: 2px solid #fff;
-      min-height: 41px;
-      color: #fff;
-    }
+.RRPublish div.ListControl {
+  padding: 2px 1% 1px 1%;
+  background-color: black !important;
+  position: relative;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 2px solid #fff;
+  min-height: 41px;
+  color: #fff;
+}
 
-    .RRPublish > div.SelectorParent {
-      position: -webkit-sticky;
-      position: sticky;
-      top: 0;
-      z-index: 5000 !important;
-      color: #fff;
-    }
+.RRPublish > div.SelectorParent {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 5000 !important;
+  color: #fff;
+}
 
-    .RRPublish > div.ListControl > div.ListControlSearch > input {
-      width: 50%;
-      background-image: url(graphics/search.png);
-      background-size: 16px;
-      background-repeat: no-repeat;
-      padding-left: 27px;
-      border-radius: 5px 0 0 5px;
-      border-right-width: 0;
-      cursor: pointer;
-      background-position: 7px center;
-      height: 27px;
-    }
+.RRPublish > div.ListControl > div.ListControlSearch > input {
+  width: 50%;
+  background-image: url(graphics/search.png);
+  background-size: 16px;
+  background-repeat: no-repeat;
+  padding-left: 27px;
+  border-radius: 5px 0 0 5px;
+  border-right-width: 0;
+  cursor: pointer;
+  background-position: 7px center;
+  height: 27px;
+}
 
-    .RRPublish > div.ListControl > div.ListControlSearch > button.btnSearch:disabled {
-      background-color: #000;
-      border: 1px solid #777;
-      font-weight: 300;
-      cursor: pointer;
-    }
+.RRPublish > div.ListControl > div.ListControlSearch > button.btnSearch:disabled {
+  background-color: #000;
+  border: 1px solid #777;
+  font-weight: 300;
+  cursor: pointer;
+}
 
-    .RRPublish > div.ListControl > div.ListControlSearch > button.btnClearSearch {
-      background-color: #000;
-      border: 1px solid #777;
-      padding: 5px;
-      height: 27px;
-      cursor: pointer;
-      width: 10%;
-      border-radius: 0 4px 4px 0;
-      border-left: 0;
-    }
+.RRPublish > div.ListControl > div.ListControlSearch > button.btnClearSearch {
+  background-color: #000;
+  border: 1px solid #777;
+  padding: 5px;
+  height: 27px;
+  cursor: pointer;
+  width: 10%;
+  border-radius: 0 4px 4px 0;
+  border-left: 0;
+}
 
-    .RRPublish > div.SelectorParent > div.Selector.hasLabel {
-      padding-top: 2px;
-      padding-bottom: 3px;
-      color: #fff;
-      background-color: #000;
-      border-bottom: 2px solid #fff;
-    }
+.RRPublish > div.SelectorParent > div.Selector.hasLabel {
+  padding-top: 2px;
+  padding-bottom: 3px;
+  color: #fff;
+  background-color: #000;
+  border-bottom: 2px solid #fff;
+}
 
-    .RRPublish table.MainTable th {
-        background-color: black !important;
-        color: white !important;
-    }
+.RRPublish table.MainTable th {
+    background-color: black !important;
+    color: white !important;
+}
 
-    .RRPublish table.MainTable td.listGrouping {
-      border: 0 !important;
-      border-bottom: 1px solid #ccc !important;
-      padding: 5px 2px 1px 2px;
-      background-color: #000;
-      font-size: 1em;
-      font-weight: 300;
-      border-bottom: 2px solid #fff;
-      color: #fff;
-    }
+.RRPublish table.MainTable td.listGrouping {
+  border: 0 !important;
+  border-bottom: 1px solid #ccc !important;
+  padding: 5px 2px 1px 2px;
+  background-color: #000;
+  font-size: 1em;
+  font-weight: 300;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+}
 
-    .RRPublish *, table.divDetailsParent * {
-      box-sizing: border-box !important;
-      -moz-box-sizing: border-box !important;
-      -webkit-box-sizing: border-box !important;
-      font-size: 12px;
-      color: black !important;
-      font-family: Helvetica, Arial, sans-serif !important;
-    }
+.RRPublish *, table.divDetailsParent * {
+  box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  -webkit-box-sizing: border-box !important;
+  font-size: 12px;
+  color: black !important;
+  font-family: Helvetica, Arial, sans-serif !important;
+}
 
-    @media (max-width: 767px) {
-      .RRPublish *, table.divDetailsParent * {
-        font-size: 11px !important;
-        border-radius: 0px;
-      }
-    }
-  </style>
+@media (max-width: 767px) {
+  .RRPublish *, table.divDetailsParent * {
+    font-size: 11px !important;
+    border-radius: 0px;
+  }
+}
+</style>
   <script type="text/javascript" src="https://my.raceresult.com/RRPublish/load.js.php?lang=en"></script>
 </head>
 <body>
   <div id="divRRPublish" class="RRPublish"></div>
 
   <script>
-    // Guardar el alert original
-    const originalAlert = window.alert;
-
-    // Sobrescribir alert para capturar el error de RaceResult
-    window.alert = function(message) {
-      if (message.includes("Loading config failed")) {
-        document.getElementById("divRRPublish").innerHTML = `
-          <h3 style="color:white; text-align:center; margin-top: 20px;">
-            Los resultados aún no están disponibles. Intente más tarde.
-          </h3>`;
-        console.warn("RaceResult todavía no publicó este ID");
-        return;
-      }
-      // Si es otro alert, mostramos el original
-      originalAlert(message);
-    };
-
-    // Obtener parámetro idrr de la URL
+    // Tomar el parámetro idrr de la URL
     const params = new URLSearchParams(window.location.search);
     const idrr = Number(params.get('idrr'));
 
@@ -146,7 +129,7 @@
       throw new Error("idrr no especificado");
     }
 
-    // Inicializar RaceResult
+    // Inicializar el widget con el id dinámico
     var rrp = new RRPublish(document.getElementById("divRRPublish"), idrr, "results");
     rrp.ShowTimerLogo = true;
     rrp.ShowInfoText = false;
